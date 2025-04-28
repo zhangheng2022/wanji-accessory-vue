@@ -11,6 +11,10 @@ import Components from "unplugin-vue-components/vite"
 import { defineConfig, loadEnv } from "vite"
 import svgLoader from "vite-svg-loader"
 
+// eslint-disable-next-line no-control-regex
+const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g
+const DRIVE_LETTER_REGEX = /^[a-z]:/i
+
 // Configuring Vite: https://cn.vite.dev/config
 export default defineConfig(({ mode }) => {
   const { VITE_PUBLIC_PATH } = loadEnv(mode, process.cwd(), "") as ImportMetaEnv
@@ -61,6 +65,15 @@ export default defineConfig(({ mode }) => {
       // 自定义底层的 Rollup 打包配置
       rollupOptions: {
         output: {
+          sanitizeFileName(name) {
+            const match = DRIVE_LETTER_REGEX.exec(name)
+            const driveLetter = match ? match[0] : ""
+            // substr 是被淘汰語法，因此要改 slice
+            return (
+              driveLetter
+              + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
+            )
+          },
           /**
            * @name 分块策略
            * @description 1. 注意这些包名必须存在，否则打包会报错
