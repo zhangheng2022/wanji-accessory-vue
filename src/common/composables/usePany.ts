@@ -8,7 +8,7 @@ function initStarNotification() {
         null,
         [
           h("div", null, "所有源码均免费开源，如果对你有帮助，欢迎点个 Star 支持一下！"),
-          h("a", { style: "color: teal", target: "_blank", href: "https://github.com/un-pany/v3-admin-vite" }, "点击传送")
+          h("a", { style: "color: teal", target: "_blank", href: "https://github.com/un-pany/wanji-accessory-vue" }, "点击传送")
         ]
       ),
       duration: 0,
@@ -27,7 +27,7 @@ function initStoreNotification() {
         null,
         [
           h("div", null, "不想自己动手，但想移除 TS 或其他模块？也有懒人套餐！"),
-          h("a", { style: "color: teal", target: "_blank", href: "https://github.com/un-pany/v3-admin-vite/issues/225" }, "点击查看")
+          h("a", { style: "color: teal", target: "_blank", href: "https://github.com/un-pany/wanji-accessory-vue/issues/225" }, "点击查看")
         ]
       ),
       duration: 0,

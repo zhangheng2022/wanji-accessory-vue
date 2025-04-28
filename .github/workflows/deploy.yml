@@ -1,4 +1,4 @@
-name: Build And Deploy v3-admin-vite
+name: Build And Deploy wanji-accessory-vue
 
 on:
   push:
@@ -20,13 +20,8 @@ jobs:
         with:
           node-version: 22.12.0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 10.2.0
-
       - name: Build
-        run: pnpm install && pnpm build
+        run: npm install && npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v4
