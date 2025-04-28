@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "prepare": "husky",
-    "test": "vitest"
+    "test": "vitest",
+    "ncu": "npx npm-check-updates"
   },
   "dependencies": {
     "@element-plus/icons-vue": "2.3.1",
@@ -31,7 +32,7 @@
     "vue": "3.5.13",
     "vue-router": "4.5.1",
     "vxe-pc-ui": "4.5.32",
-    "vxe-table": "4.13.13"
+    "vxe-table": "4.13.14"
   },
   "devDependencies": {
     "@antfu/eslint-config": "4.12.0",
