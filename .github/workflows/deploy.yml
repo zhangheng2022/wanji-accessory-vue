@@ -16,9 +16,10 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v4
         with:
-          node-version: 22.12.0
+          node-version: latest
+          cache: 'npm'
 
       - name: Build
         run: npm install && npm run build
