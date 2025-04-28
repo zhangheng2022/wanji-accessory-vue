@@ -12,7 +12,3 @@ vite.config.*.timestamp*
 
 # Logs
 *.log
-
-# Use the pnpm
-package-lock.json
-yarn.lock
