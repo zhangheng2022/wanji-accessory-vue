@@ -50,6 +50,7 @@ function setTheme({ clientX, clientY }: MouseEvent, value: ThemeName) {
 /** 在 html 根元素上挂载 class */
 function addHtmlClass(value: ThemeName) {
   document.documentElement.classList.add(value)
+  document.documentElement.setAttribute("data-vxe-ui-theme", value)
 }
 
 /** 在 html 根元素上移除其他主题 class */

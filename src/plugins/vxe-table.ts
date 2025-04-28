@@ -1,4 +1,5 @@
 import type { App } from "vue"
+import VxeUIAll from "vxe-pc-ui"
 import VXETable from "vxe-table" // https://vxetable.cn/#/start/install
 
 // 全局默认参数
@@ -55,5 +56,6 @@ VXETable.setConfig({
 
 export function installVxeTable(app: App) {
   // Vxe Table 组件完整引入
+  app.use(VxeUIAll)
   app.use(VXETable)
 }

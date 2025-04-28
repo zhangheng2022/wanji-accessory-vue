@@ -10,6 +10,7 @@ import "normalize.css"
 import "nprogress/nprogress.css"
 import "element-plus/theme-chalk/dark/css-vars.css"
 import "vxe-table/lib/style.css"
+import "vxe-pc-ui/lib/style.css"
 import "@@/assets/styles/index.scss"
 import "virtual:uno.css"
 
