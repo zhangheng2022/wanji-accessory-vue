@@ -35,18 +35,18 @@ export interface LayoutsConfig {
 
 /** 默认配置 */
 const DEFAULT_CONFIG: LayoutsConfig = {
-  layoutMode: LayoutModeEnum.Left,
-  showSettings: true,
+  layoutMode: LayoutModeEnum.LeftTop,
+  showSettings: false,
   showTagsView: true,
   fixedHeader: true,
-  showFooter: true,
+  showFooter: false,
   showLogo: true,
-  showNotify: true,
+  showNotify: false,
   showThemeSwitch: true,
   showScreenfull: true,
   showSearchMenu: true,
   cacheTagsView: false,
-  showWatermark: true,
+  showWatermark: false,
   showGreyMode: false,
   showColorWeakness: false
 }

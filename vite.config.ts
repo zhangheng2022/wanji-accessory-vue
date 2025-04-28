@@ -65,6 +65,7 @@ export default defineConfig(({ mode }) => {
       // 自定义底层的 Rollup 打包配置
       rollupOptions: {
         output: {
+          // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
           sanitizeFileName(name) {
             const match = DRIVE_LETTER_REGEX.exec(name)
             const driveLetter = match ? match[0] : ""
@@ -96,7 +97,7 @@ export default defineConfig(({ mode }) => {
       mode === "development"
         ? undefined
         : {
-            // 打包构建时移除 console.log
+          // 打包构建时移除 console.log
             pure: ["console.log"],
             // 打包构建时移除 debugger
             drop: ["debugger"],
