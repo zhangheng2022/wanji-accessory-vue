@@ -165,7 +165,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "https://juejin.cn/post/7445151895121543209",
-        component: () => {},
+        component: () => { },
         name: "Link1",
         meta: {
           title: "中文文档"
@@ -173,7 +173,7 @@ export const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "https://juejin.cn/column/7207659644487139387",
-        component: () => {},
+        component: () => { },
         name: "Link2",
         meta: {
           title: "新手教程"
@@ -244,7 +244,8 @@ export function resetRouter() {
     })
   } catch {
     // 强制刷新浏览器也行，只是交互体验不是很好
-    location.reload()
+    // location.reload()
+    console.log("重置路由失败，请手动刷新浏览器！")
   }
 }
 

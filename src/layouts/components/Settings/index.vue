@@ -49,7 +49,8 @@ watchEffect(() => {
 /** 重置项目配置 */
 function resetLayoutsConfig() {
   removeLayoutsConfig()
-  location.reload()
+  console.log("重置项目配置")
+  // location.reload()
 }
 </script>
 

@@ -34,7 +34,8 @@ export const useUserStore = defineStore("user", () => {
     token.value = newToken
     _setToken(newToken)
     // 用刷新页面代替重新登录
-    location.reload()
+    console.log("模拟角色变化，刷新页面！")
+    // location.reload()
   }
 
   // 登出

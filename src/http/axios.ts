@@ -7,7 +7,8 @@ import { get, merge } from "lodash-es"
 /** 退出登录并强制刷新页面（会重定向到登录页） */
 function logout() {
   useUserStore().logout()
-  location.reload()
+  console.log("Token 过期，请重新登录！")
+  // location.reload()
 }
 
 /** 创建请求实例 */
