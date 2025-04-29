@@ -1,12 +1,15 @@
 <template>
   <div pa-20px h-full text-center flex select-none all:transition-400>
     <div ma>
-      <div class="text-success-dark2">
+      <div class=" font-bold text-5xl">
+        预览文字Abcd
+      </div>
+      <div class="text-lime-500 border-b-color1 bg-color1">
         123123
       </div>
-      <div text-5xl fw100 animate-bounce-alt animate-count-infinite animate-duration-1s>
+      <!-- <div text-5xl fw100 animate-bounce-alt animate-count-infinite animate-duration-1s>
         UnoCSS
-      </div>
+      </div> -->
       <div op30 text-lg fw300 m1 dark:op60>
         该页面是一个 UnoCSS 的使用案例，其他页面依旧采用 Scss
       </div>

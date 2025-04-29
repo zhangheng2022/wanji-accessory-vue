@@ -1,3 +1,4 @@
+import type { PresetUnoTheme } from "unocss"
 import { defineConfig, presetAttributify, presetWind3 } from "unocss"
 
 export default defineConfig({
@@ -66,22 +67,32 @@ export default defineConfig({
       color3: "var(--el-text-color-tertiary)",
       color4: "var(--el-text-color-placeholder)",
       color5: "var(--el-text-color-disabled)"
+    },
+    borderColor: {
+      color1: "var(--el-border-color)",
+      color2: "var(--el-border-color-light)",
+      color3: "var(--el-border-color-lighter)",
+      color4: "var(--el-border-color-dark)",
+      color5: "var(--el-border-color-darker)"
+    },
+    backgroundColor: {
+      "page-color": "var(--el-bg-color-page)",
+      "color1": "var(--wj-bg-color1)",
+      "color2": "var(--wj-bg-color2)",
+      "color3": "var(--wj-bg-color3)",
+      "color4": "var(--wj-bg-color4)",
+      "color5": "var(--wj-bg-color5)"
     }
   },
   // 自定义主题扩展
-  // extendTheme: (theme: PresetUnoTheme) => {
-  //   return {
-  //     ...theme,
-  //     textColor: {
-  //       ...theme.textColor,
-  //       color1: "var(--el-text-color-primary)",
-  //       color2: "var(--el-text-color-secondary)",
-  //       color3: "var(--el-text-color-tertiary)",
-  //       color4: "var(--el-text-color-placeholder)",
-  //       color5: "var(--el-text-color-disabled)"
-  //     }
-  //   }
-  // },
+  extendTheme: (theme: PresetUnoTheme) => {
+    return {
+      ...theme,
+      textColor: {
+        ...theme.textColor
+      }
+    }
+  },
   // 自定义规则
   rules: [],
   // 自定义快捷方式

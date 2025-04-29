@@ -1,6 +1,7 @@
 /* 全局 CSS 变量，这种变量不仅可以在 CSS 和 SCSS 中使用，还可以导入到 JS 中使用 */
 
 :root {
+  /* 主题色 */
   --el-color-primary: #1a64fa;
   --el-color-primary-light-3: #7aa6ff;
   --el-color-primary-light-5: #9ebeff;
@@ -43,17 +44,31 @@
   --el-color-info-light-8: #e9eaeb;
   --el-color-info-light-9: #f4f4f5;
   --el-color-info-dark-2: #73757a;
-  --el-bg-color-page: #f7f7f9;
 
-  --el-border-radius-small: 2px;
-  --el-border-radius-base: 4px;
-  --el-border-radius-round: 20px;
-
+  /* 文字颜色 */
   --el-text-color-primary: #282829;
   --el-text-color-regular: #56595c;
   --el-text-color-secondary: #86898f;
   --el-text-color-placeholder: #a3a6ad;
   --el-text-color-disabled: #bbbfc7;
+
+  /* 边框圆角 */
+  --el-border-radius-small: 2px;
+  --el-border-radius-base: 4px;
+  --el-border-radius-round: 20px;
+
+  /* 边框颜色 */
+  --el-border-color: #b9bcc2;
+  --el-border-color-light: #d2d5db;
+  --el-border-color-lighter: #e0e4eb;
+
+  /* 页面背景色 */
+  --el-bg-color-page: #f7f7f9;
+  --wj-bg-color1: #e1e2e5;
+  --wj-bg-color2: #ebedf0;
+  --wj-bg-color3: #f5f7fa;
+  --wj-bg-color4: #fafcff;
+  --wj-bg-color3: #fafafa;
 
   /* Body */
   --v3-body-text-color: var(--el-text-color-primary);

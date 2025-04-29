@@ -15,6 +15,29 @@
 // View Transition
 @import "./view-transition.scss";
 
+// url("@@/common/assets/fonts/alibaba-puhui/Alibaba_PuHuiTi_2.0_55_Regular_55_Regular.ttf") format("truetype"),
+// url("@@/common/assets/fonts/alibaba-puhui/Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf") format("truetype"),
+
+@font-face {
+  font-family: "alibaba-puhui";
+  src: url("../../assets/fonts/alibaba-puhui/Alibaba_PuHuiTi_2.0_55_Regular_85_Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "alibaba-puhui";
+  src: url("../../assets/fonts/alibaba-puhui/Alibaba_PuHuiTi_2.0_55_Regular_55_Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "alibaba-puhui";
+  src: url("../../assets/fonts/alibaba-puhui/Alibaba_PuHuiTi_2.0_65_Medium_65_Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 // 业务页面几乎都应该在根元素上挂载 class="app-container"，以保持页面美观
 .app-container {
   padding: 0;
@@ -22,10 +45,12 @@
 
 html {
   height: 100%;
+
   // 灰色模式
   &.grey-mode {
     filter: grayscale(1);
   }
+
   // 色弱模式
   &.color-weakness {
     filter: invert(0.8);
@@ -38,9 +63,7 @@ body {
   background-color: var(--v3-body-bg-color);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family:
-    Inter, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
-    sans-serif;
+  font-family: "alibaba-puhui";
   @extend %scrollbar;
 }
 
