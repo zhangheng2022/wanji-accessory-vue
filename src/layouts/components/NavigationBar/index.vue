@@ -1,28 +1,25 @@
 <script lang="ts" setup>
-import { useAppStore } from "@/pinia/stores/app"
+// import { useAppStore } from "@/pinia/stores/app"
 import { useSettingsStore } from "@/pinia/stores/settings"
 import { useUserStore } from "@/pinia/stores/user"
 import Notify from "@@/components/Notify/index.vue"
 import Screenfull from "@@/components/Screenfull/index.vue"
 import SearchMenu from "@@/components/SearchMenu/index.vue"
 import ThemeSwitch from "@@/components/ThemeSwitch/index.vue"
-import { useDevice } from "@@/composables/useDevice"
-import { useLayoutMode } from "@@/composables/useLayoutMode"
 import { UserFilled } from "@element-plus/icons-vue"
-import { Breadcrumb, Hamburger, Sidebar } from "../index"
 
-const { isMobile } = useDevice()
-const { isTop } = useLayoutMode()
+// const { isMobile } = useDevice()
+// const { isTop } = useLayoutMode()
 const router = useRouter()
-const appStore = useAppStore()
+// const appStore = useAppStore()
 const userStore = useUserStore()
 const settingsStore = useSettingsStore()
 const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore)
 
 /** 切换侧边栏 */
-function toggleSidebar() {
-  appStore.toggleSidebar(false)
-}
+// function toggleSidebar() {
+//   appStore.toggleSidebar(false)
+// }
 
 /** 登出 */
 function logout() {
@@ -33,14 +30,14 @@ function logout() {
 
 <template>
   <div class="navigation-bar">
-    <Hamburger
+    <!-- <Hamburger
       v-if="!isTop || isMobile"
       :is-active="appStore.sidebar.opened"
       class="hamburger"
       @toggle-click="toggleSidebar"
-    />
-    <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" />
-    <Sidebar v-if="isTop && !isMobile" class="sidebar" />
+    /> -->
+    <!-- <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" /> -->
+    <!-- <Sidebar v-if="isTop && !isMobile" class="sidebar" /> -->
     <div class="right-menu">
       <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
       <Screenfull v-if="showScreenfull" class="right-menu-item" />
@@ -75,7 +72,7 @@ function logout() {
   overflow: hidden;
   color: var(--v3-navigationbar-text-color);
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   .hamburger {
     display: flex;
     align-items: center;

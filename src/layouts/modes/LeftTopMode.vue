@@ -60,11 +60,11 @@ $transition-time: 0.35s;
   }
 }
 
-.layout-header {
-  // background-color: var(--v3-header-bg-color);
-  // box-shadow: var(--v3-header-box-shadow);
-  // border-bottom: var(--v3-header-border-bottom);
-}
+// .layout-header {
+//   // background-color: var(--v3-header-bg-color);
+//   // box-shadow: var(--v3-header-box-shadow);
+//   // border-bottom: var(--v3-header-border-bottom);
+// }
 
 .main-container {
   min-height: 100%;
@@ -102,7 +102,7 @@ $transition-time: 0.35s;
 
 .hasTagsView {
   .sidebar-container {
-    padding-top: var(--v3-header-height);
+    padding-top: var(--v3-navigationbar-height);
   }
   .app-main {
     padding-top: var(--v3-header-height);

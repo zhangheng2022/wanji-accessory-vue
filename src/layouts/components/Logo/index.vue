@@ -19,10 +19,10 @@ const { isLeft, isTop } = useLayoutMode()
   <div class="layout-logo-container" :class="{ 'collapse': props.collapse, 'layout-mode-top': isTop }">
     <transition name="layout-logo-fade">
       <router-link v-if="props.collapse" key="collapse" to="/">
-        <img :src="logo" class="layout-logo">
+        <img :src="logo" class="layout-logo ml-2">
       </router-link>
       <router-link v-else key="expand" to="/">
-        <img :src="!isLeft ? logoText2 : logoText1" class="layout-logo-text">
+        <img :src="!isLeft ? logoText2 : logoText1" class="layout-logo-text ml-4 w-[100px] object-contain">
       </router-link>
     </transition>
   </div>
@@ -32,9 +32,9 @@ const { isLeft, isTop } = useLayoutMode()
 .layout-logo-container {
   position: relative;
   width: 100%;
-  height: var(--v3-header-height);
-  line-height: var(--v3-header-height);
-  text-align: center;
+  height: var(--v3-navigationbar-height);
+  line-height: var(--v3-navigationbar-height);
+  text-align: left;
   overflow: hidden;
   .layout-logo {
     display: none;

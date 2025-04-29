@@ -26,7 +26,7 @@ const activeMenu = computed(() => route.meta.activeMenu || route.path)
 
 <template>
   <div class="w-full h-full px-4 pb-4 select-none">
-    <div class=" bg-white p-4 rounded-md shadow-sm min-h-full">
+    <div class="bg-white .dark:bg-black p-4 rounded-md shadow-sm min-h-full">
       <template v-for="item in noHiddenRoutes" :key="item.path">
         <template v-if="item.children?.length === 1 && item.path === '/'">
           <Link :to="resolvePath(item.path, item.children[0].path)">

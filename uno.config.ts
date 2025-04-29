@@ -17,8 +17,7 @@ export default defineConfig({
   // 自定义主题
   theme: {
     colors: {
-      brand: "var(--el-color-primary)",
-      bg: "var(--el-bg-color-page)"
+      brand: "var(--el-color-primary)"
     },
     boxShadow: {
       // 自定义阴影
