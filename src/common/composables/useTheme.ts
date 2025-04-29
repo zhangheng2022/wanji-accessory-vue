@@ -22,11 +22,11 @@ const themeList: ThemeList[] = [
   {
     title: "黑暗",
     name: "dark"
-  },
-  {
-    title: "深蓝",
-    name: "dark-blue"
   }
+  // {
+  //   title: "深蓝",
+  //   name: "dark-blue"
+  // }
 ]
 
 /** 正在应用的主题名称 */

@@ -1,6 +1,19 @@
 /* 全局 CSS 变量，这种变量不仅可以在 CSS 和 SCSS 中使用，还可以导入到 JS 中使用 */
 
 :root {
+  --el-color-primary: #1451cc;
+  --el-bg-color-page: #f7f7f9;
+
+  --el-border-radius-small: 2px;
+  --el-border-radius-base: 4px;
+  --el-border-radius-round: 20px;
+
+  --el-text-color-primary: #282829;
+  --el-text-color-regular: #56595c;
+  --el-text-color-secondary: #86898f;
+  --el-text-color-placeholder: #a3a6ad;
+  --el-text-color-disabled: #bbbfc7;
+
   /* Body */
   --v3-body-text-color: var(--el-text-color-primary);
   --v3-body-bg-color: var(--el-bg-color-page);
@@ -16,7 +29,7 @@
   --v3-navigationbar-height: 50px;
   --v3-navigationbar-text-color: var(--el-text-color-regular);
   /* Sidebar 组件（左侧模式全部生效、顶部模式全部不生效、混合模式非颜色部分生效） */
-  --v3-sidebar-width: 220px;
+  --v3-sidebar-width: 260px;
   --v3-sidebar-hide-width: 58px;
   --v3-sidebar-border-right: 1px solid var(--el-fill-color);
   --v3-sidebar-menu-item-height: 60px;

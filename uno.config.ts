@@ -1,3 +1,4 @@
+import type { PresetUnoTheme } from "unocss"
 import { defineConfig, presetAttributify, presetWind3 } from "unocss"
 
 export default defineConfig({
@@ -13,6 +14,35 @@ export default defineConfig({
       important: "#app"
     })
   ],
+  // 自定义主题
+  theme: {
+    colors: {
+      brand: "var(--el-color-primary)",
+      bg: "var(--el-bg-color-page)"
+    },
+    boxShadow: {
+      // 自定义阴影
+      sm: "0px 0px 12px 0px rgba(0,0,0,0.05);",
+      base: "var(--el-box-shadow)",
+      light: "var(--el-box-shadow-light)",
+      lighter: "var(--el-box-shadow-lighter)",
+      dark: "var(--el-box-shadow-dark)"
+    }
+  },
+  // 自定义主题扩展
+  extendTheme: (theme: PresetUnoTheme) => {
+    return {
+      ...theme,
+      textColor: {
+        ...theme.textColor,
+        primary: "var(--el-text-color-primary)",
+        secondary: "var(--el-text-color-secondary)",
+        tertiary: "var(--el-text-color-tertiary)",
+        placeholder: "var(--el-text-color-placeholder)",
+        disabled: "var(--el-text-color-disabled)"
+      }
+    }
+  },
   // 自定义规则
   rules: [],
   // 自定义快捷方式

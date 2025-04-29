@@ -61,9 +61,9 @@ $transition-time: 0.35s;
 }
 
 .layout-header {
-  background-color: var(--v3-header-bg-color);
-  box-shadow: var(--v3-header-box-shadow);
-  border-bottom: var(--v3-header-border-bottom);
+  // background-color: var(--v3-header-bg-color);
+  // box-shadow: var(--v3-header-box-shadow);
+  // border-bottom: var(--v3-header-border-bottom);
 }
 
 .main-container {
@@ -71,7 +71,7 @@ $transition-time: 0.35s;
 }
 
 .sidebar-container {
-  background-color: var(--el-menu-bg-color);
+  // background-color: var(--el-menu-bg-color);
   transition: width $transition-time;
   width: var(--v3-sidebar-width);
   height: 100%;
@@ -79,7 +79,7 @@ $transition-time: 0.35s;
   left: 0;
   z-index: 1001;
   overflow: hidden;
-  border-right: var(--v3-sidebar-border-right);
+  // border-right: var(--v3-sidebar-border-right);
   padding-top: var(--v3-navigationbar-height);
 }
 
