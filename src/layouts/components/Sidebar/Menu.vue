@@ -30,7 +30,7 @@ const activeMenu = computed(() => route.meta.activeMenu || route.path)
       <template v-for="item in noHiddenRoutes" :key="item.path">
         <template v-if="item.children?.length === 1 && item.path === '/'">
           <Link :to="resolvePath(item.path, item.children[0].path)">
-            <div class="flex items-center" :class="{ 'text-brand!': activeMenu === resolvePath(item.path, item.children[0].path) }">
+            <div class="flex items-center" :class="{ 'text-brand': activeMenu === resolvePath(item.path, item.children[0].path) }">
               <SvgIcon v-if="item.children[0].meta?.svgIcon" :name="item.children[0].meta.svgIcon" class="svg-icon" />
               <component v-else-if="item.children[0].meta?.elIcon" :is="item.children[0].meta.elIcon" class="el-icon" />
               <template v-if="item.children[0].meta?.title">
@@ -52,7 +52,7 @@ const activeMenu = computed(() => route.meta.activeMenu || route.path)
                   <SvgIcon v-if="subitem.meta?.svgIcon" :name="subitem.meta.svgIcon" class="svg-icon" />
                   <component v-else-if="subitem.meta?.elIcon" :is="subitem.meta.elIcon" class="el-icon" />
                   <template v-if="subitem.meta?.title">
-                    <span class="text-size-sm flex items-center text-secondary" :class="{ 'text-brand!': activeMenu === resolvePath(item.path, subitem.path) }">{{ subitem.meta.title }}</span>
+                    <span class="text-size-sm flex items-center text-color2" :class="{ 'text-brand!': activeMenu === resolvePath(item.path, subitem.path) }">{{ subitem.meta.title }}</span>
                   </template>
                 </div>
               </Link>

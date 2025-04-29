@@ -1,6 +1,9 @@
 <template>
   <div pa-20px h-full text-center flex select-none all:transition-400>
     <div ma>
+      <div class="text-success-dark2">
+        123123
+      </div>
       <div text-5xl fw100 animate-bounce-alt animate-count-infinite animate-duration-1s>
         UnoCSS
       </div>
