@@ -82,6 +82,11 @@ export default defineConfig({
       "color3": "var(--wj-bg-color3)",
       "color4": "var(--wj-bg-color4)",
       "color5": "var(--wj-bg-color5)"
+    },
+    fontWeight: {
+      // 自定义字体粗细
+      bold: "bold",
+      lighter: "lighter"
     }
   },
   // 自定义主题扩展
