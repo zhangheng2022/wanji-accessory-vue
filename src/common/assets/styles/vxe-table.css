@@ -5,12 +5,16 @@
  */
 
 :root {
+  /*font*/
+  --vxe-ui-font-family:
+    "alibaba-puhui", Inter, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "微软雅黑", Arial, sans-serif;
+
   /*font color*/
   --vxe-ui-font-color: var(--el-text-color-primary);
   --vxe-ui-font-tinge-color: var(--el-text-color-regular);
   --vxe-ui-font-lighten-color: var(--el-text-color-secondary);
   --vxe-ui-font-disabled-color: var(--el-text-color-disabled);
-
   --vxe-ui-font-primary-color: var(--el-color-primary);
 
   --vxe-ui-status-success-color: var(--el-color-success);
