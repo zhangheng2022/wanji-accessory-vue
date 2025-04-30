@@ -1,7 +1,7 @@
 import { getActiveThemeName, setActiveThemeName } from "@@/utils/cache/local-storage"
 import { setCssVar } from "@@/utils/css"
 
-const DEFAULT_THEME_NAME = "normal"
+const DEFAULT_THEME_NAME = "light"
 
 type DefaultThemeName = typeof DEFAULT_THEME_NAME
 
