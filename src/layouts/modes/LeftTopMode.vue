@@ -3,6 +3,10 @@ import { useAppStore } from "@/pinia/stores/app"
 import { useSettingsStore } from "@/pinia/stores/settings"
 import { AppMain, Logo, NavigationBar, Sidebar, TagsView } from "../components"
 
+const route = useRoute()
+
+const activeMenu = computed(() => route.meta.activeMenu || route.path)
+
 const appStore = useAppStore()
 const settingsStore = useSettingsStore()
 const { showTagsView, showLogo } = storeToRefs(settingsStore)
@@ -13,6 +17,12 @@ const layoutClasses = computed(() => {
     hideSidebar: !appStore.sidebar.opened
   }
 })
+
+const layoutShowTagsView = computed(() => {
+  console.log(activeMenu.value)
+
+  return showTagsView.value && activeMenu.value !== "/dashboard"
+})
 </script>
 
 <template>
@@ -22,11 +32,11 @@ const layoutClasses = computed(() => {
       <Logo v-if="showLogo" :collapse="false" class="logo" />
       <div class="content">
         <NavigationBar />
-        <TagsView v-show="showTagsView" />
+        <TagsView v-show="layoutShowTagsView" />
       </div>
     </div>
     <!-- 主容器 -->
-    <div :class="{ hasTagsView: showTagsView }" class="main-container">
+    <div :class="{ hasTagsView: layoutShowTagsView }" class="main-container">
       <!-- 左侧边栏 -->
       <Sidebar class="sidebar-container" />
       <!-- 页面主体内容 -->
@@ -47,7 +57,7 @@ $transition-time: 0.35s;
 .fixed-header {
   position: fixed;
   top: 0;
-  z-index: 1002;
+  z-index: 1001;
   width: 100%;
   display: flex;
   .logo {
@@ -71,15 +81,13 @@ $transition-time: 0.35s;
 }
 
 .sidebar-container {
-  // background-color: var(--el-menu-bg-color);
   transition: width $transition-time;
   width: var(--v3-sidebar-width);
   height: 100%;
   position: fixed;
   left: 0;
-  z-index: 1001;
+  z-index: 1002;
   overflow: hidden;
-  // border-right: var(--v3-sidebar-border-right);
   padding-top: var(--v3-navigationbar-height);
 }
 

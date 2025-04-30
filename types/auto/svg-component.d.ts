@@ -7,20 +7,20 @@
 declare module '~virtual/svg-component' {
   const SvgIcon: import("vue").DefineComponent<{
       name: {
-          type: import("vue").PropType<"dashboard" | "fullscreen-exit" | "fullscreen" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "search">;
+          type: import("vue").PropType<"add" | "calendar" | "close" | "dashboard" | "delete" | "downward - area" | "downward - linear" | "edit" | "export" | "fullscreen-exit" | "fullscreen" | "Import" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "left-area" | "Left-linear" | "omit" | "Print" | "question" | "right-area" | "Right-linear" | "search" | "service" | "set" | "up - linear" | "up and down arrows" | "up-area">;
           default: string;
           required: true;
       };
   }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
       name: {
-          type: import("vue").PropType<"dashboard" | "fullscreen-exit" | "fullscreen" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "search">;
+          type: import("vue").PropType<"add" | "calendar" | "close" | "dashboard" | "delete" | "downward - area" | "downward - linear" | "edit" | "export" | "fullscreen-exit" | "fullscreen" | "Import" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "left-area" | "Left-linear" | "omit" | "Print" | "question" | "right-area" | "Right-linear" | "search" | "service" | "set" | "up - linear" | "up and down arrows" | "up-area">;
           default: string;
           required: true;
       };
   }>>, {
-      name: "dashboard" | "fullscreen-exit" | "fullscreen" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "search";
+      name: "add" | "calendar" | "close" | "dashboard" | "delete" | "downward - area" | "downward - linear" | "edit" | "export" | "fullscreen-exit" | "fullscreen" | "Import" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "left-area" | "Left-linear" | "omit" | "Print" | "question" | "right-area" | "Right-linear" | "search" | "service" | "set" | "up - linear" | "up and down arrows" | "up-area";
   }>;
-  export const svgNames: ["dashboard", "fullscreen-exit", "fullscreen", "keyboard-down", "keyboard-enter", "keyboard-esc", "keyboard-up", "search"];
-  export type SvgName = "dashboard" | "fullscreen-exit" | "fullscreen" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "search";
+  export const svgNames: ["add", "calendar", "close", "dashboard", "delete", "downward - area", "downward - linear", "edit", "export", "fullscreen-exit", "fullscreen", "Import", "keyboard-down", "keyboard-enter", "keyboard-esc", "keyboard-up", "left-area", "Left-linear", "omit", "Print", "question", "right-area", "Right-linear", "search", "service", "set", "up - linear", "up and down arrows", "up-area"];
+  export type SvgName = "add" | "calendar" | "close" | "dashboard" | "delete" | "downward - area" | "downward - linear" | "edit" | "export" | "fullscreen-exit" | "fullscreen" | "Import" | "keyboard-down" | "keyboard-enter" | "keyboard-esc" | "keyboard-up" | "left-area" | "Left-linear" | "omit" | "Print" | "question" | "right-area" | "Right-linear" | "search" | "service" | "set" | "up - linear" | "up and down arrows" | "up-area";
   export default SvgIcon;
 }

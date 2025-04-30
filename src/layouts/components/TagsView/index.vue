@@ -78,6 +78,7 @@ function initTags() {
 
 /** 添加标签页 */
 function addTags(route: RouteLocationNormalizedGeneric) {
+  if (route.path === "/dashboard") return
   if (route.name) {
     tagsViewStore.addVisitedView(route)
     tagsViewStore.addCachedView(route)
@@ -204,9 +205,9 @@ listenerRouteChange((route) => {
 
 <style lang="scss" scoped>
 .tags-view-container {
-  height: var(--v3-tagsview-height);
   width: 100%;
-  color: var(--v3-tagsview-text-color);
+  height: var(--v3-tagsview-height);
+  color: var(--el-text-color-regular);
   overflow: hidden;
   .tags-view-wrapper {
     .tags-view-item {
@@ -215,25 +216,22 @@ listenerRouteChange((route) => {
       justify-content: center;
       position: relative;
       cursor: pointer;
-      height: 26px;
-      line-height: 26px;
-      border: 1px solid var(--v3-tagsview-tag-border-color);
-      border-radius: var(--v3-tagsview-tag-border-radius);
-      background-color: var(--v3-tagsview-tag-bg-color);
+      height: 28px;
+      line-height: 28px;
+      border-radius: var(--el-border-radius-base);
+      background-color: var(--el-bg-color);
+      box-shadow: var(--el-box-shadow-lighter);
       padding: 0 8px;
-      font-size: 12px;
-      margin-left: 5px;
-      margin-top: 4px;
-      &:first-of-type {
-        margin-left: 5px;
-      }
-      &:last-of-type {
-        margin-right: 5px;
-      }
+      font-size: 14px;
+      margin-right: 8px;
+      // &:first-of-type {
+      //   margin-left: 5px;
+      // }
+      // &:last-of-type {
+      //   margin-right: 5px;
+      // }
       &.active {
-        background-color: var(--v3-tagsview-tag-active-bg-color);
         color: var(--v3-tagsview-tag-active-text-color);
-        border-color: var(--v3-tagsview-tag-active-border-color);
       }
       .el-icon {
         margin-left: 5px;

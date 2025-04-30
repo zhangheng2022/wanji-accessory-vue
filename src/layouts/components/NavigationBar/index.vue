@@ -38,25 +38,24 @@ function logout() {
     /> -->
     <!-- <Breadcrumb v-if="!isTop || isMobile" class="breadcrumb" /> -->
     <!-- <Sidebar v-if="isTop && !isMobile" class="sidebar" /> -->
+    <SearchMenu v-if="showSearchMenu" />
     <div class="right-menu">
-      <SearchMenu v-if="showSearchMenu" class="right-menu-item" />
       <Screenfull v-if="showScreenfull" class="right-menu-item" />
       <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
       <Notify v-if="showNotify" class="right-menu-item" />
+      <div class="bg-white py-1 px-2 rounded-full flex items-center right-menu-item">
+        <SvgIcon name="service" class=" text-brand" style="width: 18px;height: 18px;" />
+        <span class="text-base ml-1">在线帮助</span>
+      </div>
       <el-dropdown>
-        <div class="right-menu-item user">
-          <el-avatar :icon="UserFilled" :size="30" />
-          <span>{{ userStore.username }}</span>
+        <div class="right-menu-item user bg-white py-1 px-2 rounded-full">
+          <el-avatar :icon="UserFilled" :size="24" />
+          <span class="mx-1">{{ userStore.username }}</span>
+          <el-icon><ArrowDownBold /></el-icon>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <a target="_blank" href="https://github.com/un-pany/wanji-accessory-vue">
-              <el-dropdown-item>GitHub</el-dropdown-item>
-            </a>
-            <a target="_blank" href="https://gitee.com/un-pany/wanji-accessory-vue">
-              <el-dropdown-item>Gitee</el-dropdown-item>
-            </a>
-            <el-dropdown-item divided @click="logout">
+            <el-dropdown-item @click="logout">
               退出登录
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -72,7 +71,8 @@ function logout() {
   overflow: hidden;
   color: var(--v3-navigationbar-text-color);
   display: flex;
-  justify-content: end;
+  align-items: center;
+  justify-content: space-between;
   .hamburger {
     display: flex;
     align-items: center;

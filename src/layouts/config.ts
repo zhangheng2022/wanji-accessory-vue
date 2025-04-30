@@ -43,7 +43,7 @@ const DEFAULT_CONFIG: LayoutsConfig = {
   showLogo: true,
   showNotify: false,
   showThemeSwitch: false,
-  showScreenfull: true,
+  showScreenfull: false,
   showSearchMenu: true,
   cacheTagsView: true,
   showWatermark: false,
