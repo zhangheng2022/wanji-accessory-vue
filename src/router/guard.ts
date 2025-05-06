@@ -55,7 +55,7 @@ export function registerNavigationGuard(router: Router) {
       console.error(error)
       userStore.resetToken()
       ElMessage.error((error as Error).message || "路由守卫发生错误")
-      location.replace(LOGIN_PATH)
+      // location.replace(LOGIN_PATH)
       return false
     }
   })

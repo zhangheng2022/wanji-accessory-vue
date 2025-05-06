@@ -7,12 +7,52 @@ import { setToken as _setToken, getToken, removeToken } from "@@/utils/cache/coo
 import { useSettingsStore } from "./settings"
 import { useTagsViewStore } from "./tags-view"
 
+/**
+ * 从菜单生成权限资源
+ *
+ * @param menus 授予用户的菜单列表
+ * @returns Map<string, string[]> 权限资源
+ */
+// function buildMenuPermission(menus: MenuItem[]) {
+//   const ret = new Map<string, string[]>()
+
+//   menus.forEach((item) => {
+//     if (item.type === "menu" && item.children && item.children.length > 0) {
+//       const tmp = buildMenuPermission(item.children)
+//       if (tmp.size > 0) {
+//         tmp.forEach((value, key) => {
+//           if (ret.has(key)) {
+//             ret.set(key, [...new Set([...(ret.get(key) as string[]), ...value])])
+//           } else {
+//             ret.set(key, value)
+//           }
+//         })
+//       }
+//     } else if (item.type === "page" && item.children && item.children.length > 0) {
+//       const res: string[] = []
+
+//       item.children?.forEach((child) => {
+//         if (child.name !== "") {
+//           res.push(child.name)
+//         }
+//       })
+
+//       if (res.length > 0) {
+//         ret.set(item.name, res)
+//       }
+//     }
+//   })
+
+//   return ret
+// }
+
 export const useUserStore = defineStore("user", () => {
   const token = ref<string>(getToken() || "")
   const roles = ref<string[]>([])
   const username = ref<string>("")
   const avatar = ref<string>("")
   const dynamicMenus = ref<MenuItem[]>([])
+  // const permission = reactive<Map<string, string[]>>(new Map())
 
   const tagsViewStore = useTagsViewStore()
   const settingsStore = useSettingsStore()
@@ -36,8 +76,19 @@ export const useUserStore = defineStore("user", () => {
 
   /** 获取菜单 */
   const getMenus = async () => {
-    const { data } = await getMenuDataApi()
-    dynamicMenus.value = data
+    try {
+      const { data } = await getMenuDataApi()
+      if (data && data.length > 0) {
+        dynamicMenus.value = data
+        // const permissionMap = buildMenuPermission(data)
+        // permissionMap.forEach((value, key) => {
+        //   permission.set(key, value)
+        // })
+      }
+    } catch (error) {
+      console.error(error)
+      dynamicMenus.value = []
+    }
   }
 
   // 模拟角色变化

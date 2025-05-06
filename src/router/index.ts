@@ -198,7 +198,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
       title: "权限演示",
       elIcon: "Lock",
       // 可以在根路由中设置角色
-      roles: ["admin", "editor"],
+      roles: ["tenant_admin", "editor"],
       alwaysShow: true
     },
     children: [
@@ -209,7 +209,7 @@ export const dynamicRoutes: RouteRecordRaw[] = [
         meta: {
           title: "页面级",
           // 或者在子路由中设置角色
-          roles: ["admin"]
+          roles: ["tenant_admin"]
         }
       },
       {
