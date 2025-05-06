@@ -19,8 +19,6 @@ const layoutClasses = computed(() => {
 })
 
 const layoutShowTagsView = computed(() => {
-  console.log(activeMenu.value)
-
   return showTagsView.value && activeMenu.value !== "/dashboard"
 })
 </script>

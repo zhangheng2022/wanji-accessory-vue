@@ -16,6 +16,17 @@ export const useTagsViewStore = defineStore("tags-view", () => {
     setCachedViews(cachedViews.value)
   })
 
+  const kebabToPascal = (str: string) => {
+    return str
+      .split("-")
+      .filter(word => word) // 过滤空字符串
+      .map(word =>
+        word.charAt(0).toUpperCase()
+        + word.slice(1).toLowerCase()
+      )
+      .join("")
+  }
+
   // #region add
   const addVisitedView = (view: TagView) => {
     // 检查是否已经存在相同的 visitedView
@@ -31,9 +42,9 @@ export const useTagsViewStore = defineStore("tags-view", () => {
 
   const addCachedView = (view: TagView) => {
     if (typeof view.name !== "string") return
-    if (cachedViews.value.includes(view.name)) return
+    if (cachedViews.value.includes(kebabToPascal(view.name))) return
     if (view.meta?.keepAlive) {
-      cachedViews.value.push(view.name)
+      cachedViews.value.push(kebabToPascal(view.name))
     }
   }
   // #endregion
@@ -48,7 +59,7 @@ export const useTagsViewStore = defineStore("tags-view", () => {
 
   const delCachedView = (view: TagView) => {
     if (typeof view.name !== "string") return
-    const index = cachedViews.value.indexOf(view.name)
+    const index = cachedViews.value.indexOf(kebabToPascal(view.name))
     if (index !== -1) {
       cachedViews.value.splice(index, 1)
     }
@@ -64,7 +75,7 @@ export const useTagsViewStore = defineStore("tags-view", () => {
 
   const delOthersCachedViews = (view: TagView) => {
     if (typeof view.name !== "string") return
-    const index = cachedViews.value.indexOf(view.name)
+    const index = cachedViews.value.indexOf(kebabToPascal(view.name))
     if (index !== -1) {
       cachedViews.value = cachedViews.value.slice(index, index + 1)
     } else {

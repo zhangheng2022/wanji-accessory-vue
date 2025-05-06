@@ -41,12 +41,13 @@ export default defineConfig(({ mode }) => {
       open: true,
       // 反向代理
       proxy: {
-        "/api/v1": {
-          target: "https://apifoxmock.com/m1/2930465-2145633-default",
+        "/dev-api": {
+          target: "http://192.168.3.141:80",
           // 是否为 WebSocket
           ws: false,
           // 是否允许跨域
-          changeOrigin: true
+          changeOrigin: true,
+          rewrite: p => p.replace(/^\/dev-api/, "/web-api")
         }
       },
       // 是否允许跨域

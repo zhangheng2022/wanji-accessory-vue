@@ -29,6 +29,48 @@ interface RouterConfig {
   thirdLevelRouteCache: boolean
 }
 
+/** 菜单类型 */
+export enum MenuType {
+  Menu = "menu",
+  Page = "page",
+  Button = "button",
+  Link = "link"
+}
+
+/** 菜单元数据 */
+export interface MenuMeta {
+  /** 菜单标题 */
+  title: string
+  /** 菜单图标 */
+  icon?: string
+  /** 隐藏菜单 */
+  hidden?: boolean
+  /** 菜单总是可见 */
+  alwaysShow?: boolean
+  /** 菜单是否可用 */
+  roles?: string[]
+  /** 其它参数 */
+  [key: string]: any
+}
+
+/** 菜单详情 */
+export interface MenuItem {
+  /** 菜单名称 */
+  name: string
+  /** 菜单类型 */
+  type: MenuType
+  /** 菜单路径 */
+  path: string
+  /** 重定向页面 */
+  redirect?: string
+  /** 组件页面 */
+  component?: string
+  /** 菜单元数据 */
+  meta: MenuMeta
+  /** 子菜单 */
+  children?: MenuItem[]
+}
+
 const VITE_ROUTER_HISTORY = import.meta.env.VITE_ROUTER_HISTORY
 
 const VITE_PUBLIC_PATH = import.meta.env.VITE_PUBLIC_PATH

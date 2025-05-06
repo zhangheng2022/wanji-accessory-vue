@@ -4,7 +4,7 @@ import { registerNavigationGuard } from "@/router/guard"
 import { createRouter } from "vue-router"
 import { flatMultiLevelRoutes } from "./helper"
 
-const Layouts = () => import("@/layouts/index.vue")
+export const Layouts = () => import("@/layouts/index.vue")
 
 /**
  * @name 常驻路由
@@ -39,13 +39,13 @@ export const constantRoutes: RouteRecordRaw[] = [
     },
     alias: "/:pathMatch(.*)*"
   },
-  {
-    path: "/login",
-    component: () => import("@/pages/login/index.vue"),
-    meta: {
-      hidden: true
-    }
-  },
+  // {
+  //   path: "/login",
+  //   component: () => import("@/pages/login/index.vue"),
+  //   meta: {
+  //     hidden: true
+  //   }
+  // },
   {
     path: "/",
     component: Layouts,
@@ -56,7 +56,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/pages/dashboard/index.vue"),
         name: "Dashboard",
         meta: {
-          title: "首页",
+          title: "工作台",
           svgIcon: "dashboard",
           affix: false
         }

@@ -6,15 +6,17 @@ import Notify from "@@/components/Notify/index.vue"
 import Screenfull from "@@/components/Screenfull/index.vue"
 import SearchMenu from "@@/components/SearchMenu/index.vue"
 import ThemeSwitch from "@@/components/ThemeSwitch/index.vue"
-import { UserFilled } from "@element-plus/icons-vue"
+// import { UserFilled } from "@element-plus/icons-vue"
 
 // const { isMobile } = useDevice()
 // const { isTop } = useLayoutMode()
-const router = useRouter()
+// const router = useRouter()
 // const appStore = useAppStore()
 const userStore = useUserStore()
 const settingsStore = useSettingsStore()
 const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToRefs(settingsStore)
+
+const LOGIN_PATH = import.meta.env.VITE_LOGIN_PATH
 
 /** 切换侧边栏 */
 // function toggleSidebar() {
@@ -24,7 +26,8 @@ const { showNotify, showThemeSwitch, showScreenfull, showSearchMenu } = storeToR
 /** 登出 */
 function logout() {
   userStore.logout()
-  router.push("/login")
+  location.replace(LOGIN_PATH)
+  // router.push("/login")
 }
 </script>
 
@@ -49,7 +52,7 @@ function logout() {
       </div>
       <el-dropdown>
         <div class="right-menu-item user bg-white py-1 px-2 rounded-full">
-          <el-avatar :icon="UserFilled" :size="24" />
+          <el-avatar :src="userStore.avatar" :size="24" />
           <span class="mx-1">{{ userStore.username }}</span>
           <el-icon><ArrowDownBold /></el-icon>
         </div>

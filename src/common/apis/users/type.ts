@@ -1,1 +1,4 @@
-export type CurrentUserResponseData = ApiResponseData<{ username: string, roles: string[] }>
+export interface UserResponseData {
+  user: any
+  roles: string[]
+}

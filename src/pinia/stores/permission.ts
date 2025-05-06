@@ -1,8 +1,12 @@
+import type { MenuItem } from "@/router/config"
 import type { RouteRecordRaw } from "vue-router"
+import type { SvgName } from "~virtual/svg-component"
 import { pinia } from "@/pinia"
-import { constantRoutes, dynamicRoutes } from "@/router"
+import { constantRoutes, dynamicRoutes, Layouts } from "@/router"
 import { routerConfig } from "@/router/config"
 import { flatMultiLevelRoutes } from "@/router/helper"
+
+const modules = import.meta.glob(["@/pages/*.vue", "@/pages/**/*.vue"])
 
 function hasPermission(roles: string[], route: RouteRecordRaw) {
   const routeRoles = route.meta?.roles
@@ -23,6 +27,37 @@ function filterDynamicRoutes(routes: RouteRecordRaw[], roles: string[]) {
   return res
 }
 
+function transformMenuToRoute(menuItem: MenuItem): RouteRecordRaw {
+  const childrenRoute: RouteRecordRaw[] = []
+  const vuePath = `/src${menuItem.component ?? ""}`
+  const vuePage = menuItem.component === "ParentView" ? Layouts : modules[vuePath]
+
+  // 如果有 children，则需要递归添加 children 到 route
+  if (menuItem.children && menuItem.children.length > 0) {
+    for (let i = 0; i < menuItem.children.length; i++) {
+      childrenRoute.push(transformMenuToRoute(menuItem.children[i]))
+    }
+  }
+
+  const routeItem: RouteRecordRaw = {
+    path: menuItem.component === "ParentView" ? `/${menuItem.path}` : `${menuItem.path}`,
+    name: menuItem.name,
+    component: vuePage,
+    meta: {
+      svgIcon: menuItem.meta.icon && menuItem.meta.icon !== "#" ? menuItem.meta.icon as SvgName : undefined,
+      keepAlive: !menuItem.meta.noCache,
+      ...menuItem.meta
+    },
+    children: childrenRoute.length > 0 ? childrenRoute : undefined
+  }
+
+  if (menuItem.redirect) {
+    routeItem.redirect = menuItem.redirect
+  }
+
+  return routeItem
+}
+
 export const usePermissionStore = defineStore("permission", () => {
   // 可访问的路由
   const routes = ref<RouteRecordRaw[]>([])
@@ -31,8 +66,12 @@ export const usePermissionStore = defineStore("permission", () => {
   const addRoutes = ref<RouteRecordRaw[]>([])
 
   // 根据角色生成可访问的 Routes（可访问的路由 = 常驻路由 + 有访问权限的动态路由）
-  const setRoutes = (roles: string[]) => {
-    const accessedRoutes = filterDynamicRoutes(dynamicRoutes, roles)
+  const setRoutes = (roles: string[], menus: MenuItem[]) => {
+    const menuRoute: RouteRecordRaw[] = []
+    for (let i = 0; i < menus.length; i++) {
+      menuRoute.push(transformMenuToRoute(menus[i]))
+    }
+    const accessedRoutes = filterDynamicRoutes(menuRoute, roles)
     set(accessedRoutes)
   }
 
